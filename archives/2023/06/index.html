@@ -22,7 +22,7 @@
     <meta name="description" content="IT 관련 정보를 기록하는 블로그입니다.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Jicmu&#39;s blog">
-<meta property="og:url" content="https://jicmu.github.io/index.html">
+<meta property="og:url" content="https://jicmu.github.io/archives/2023/06/index.html">
 <meta property="og:site_name" content="Jicmu&#39;s blog">
 <meta property="og:description" content="IT 관련 정보를 기록하는 블로그입니다.">
 <meta property="og:locale" content="ko_KR">
@@ -30,14 +30,14 @@
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://jicmu.github.io/">
+<link rel="canonical" href="https://jicmu.github.io/archives/2023/06/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"ko","comments":"","permalink":"","path":"index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"ko","comments":"","permalink":"","path":"archives/2023/06/index.html","title":""}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Jicmu's blog</title>
+<title>아카이브 | Jicmu's blog</title>
   
 
 
@@ -186,113 +186,49 @@
 
     </div>
 
-    <div class="main-inner index posts-expand">
-
-    
+    <div class="main-inner archive posts-collapse">
 
 
-<div class="post-block">
   
   
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://jicmu.github.io/2023/06/09/Iterator-%ED%8C%A8%ED%84%B4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jicmu">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jicmu's blog">
-      <meta itemprop="description" content="IT 관련 정보를 기록하는 블로그입니다.">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Jicmu's blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/06/09/Iterator-%ED%8C%A8%ED%84%B4/" class="post-title-link" itemprop="url">Iterator 패턴: 반복문의 추상화</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">작성일</span>
-      
-
-      <time title="Post created: 2023-06-09 11:17:14 / Updated at: 12:14:22" itemprop="dateCreated datePublished" datetime="2023-06-09T11:17:14+09:00">2023-06-09</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B4/" itemprop="url" rel="index"><span itemprop="name">디자인패턴</span></a>
-        </span>
-    </span>
-
   
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="반복문-인덱스의-추상화"><a href="#반복문-인덱스의-추상화" class="headerlink" title="반복문 인덱스의 추상화"></a>반복문 인덱스의 추상화</h1><p>대부분의 프로그래밍 언어를 배울 때 여러가지 흐름제어 문법들을 배운다. 자바의 if문으로 대표되는 조건문과 while문, for문의 반복문이 그에 속한다. 이 중 for문은 대개 초기화, 조건식, 증감식을 이용해 일정횟수를 반복하거나 배열이나 Collection의 값에 일괄 처리를 하는데 사용된다.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; collection.size(); i++) &#123;</span><br><span class="line">    <span class="comment">/* 처리문 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>위의 구분에서 변수 i는 최대 collection의 크기만큼의 값을 가지며 collection의 요소에 접근할 수 있게 해준다.<br>Iterator 패턴은 이런 i의 역할을 추상화한 것이다.</p>
-<h1 id="Iterator-패턴의-용어"><a href="#Iterator-패턴의-용어" class="headerlink" title="Iterator 패턴의 용어"></a>Iterator 패턴의 용어</h1><ul>
-<li>Iterator<ul>
-<li>자바의 java.util.Iterator<E> 인터페이스를 말한다. 이 인터페이스에는 hasNext() 메서드와 next()메서드가 있는데 hasNext()는 배열 또는 Collection의 <strong>다음 값</strong>이 존재하는지를 알려주고 next()메서드는 <strong>현재의 가르키고 있는 요소를 반환</strong>하고 다음 위치로 진행한다.</li>
-</ul>
-</li>
-<li>ConcreteIterator<ul>
-<li>Iterator<E> 인터페이스를 구현한 클래스이다.</li>
-</ul>
-</li>
-<li>Aggregate<ul>
-<li>java.lang.Iterable<T> 인터페이스를 말한다. 이 인터페이스는 Iterator를 생성하기 위한 iterator()메서드가 있다.</li>
-</ul>
-</li>
-<li>ConcreateAggregate<ul>
-<li>Iterable<T>를 구현한 클래스이다. 이 클래스의 인스턴스는 반복처리를 할 데이터를 가지고 있다.</li>
-</ul>
-</li>
-</ul>
-<h1 id="사용하는-이유"><a href="#사용하는-이유" class="headerlink" title="사용하는 이유"></a>사용하는 이유</h1><p>배열(length())과 Collection(size())의 크기를 구하기위해서 사용되는 메서드는 다르다. 만약 배열을 이용해 작동되던 for문을 ArrayList로 바꾼다고 가정해보면 for문에 직접 접근해 사용하는 메서드를 바꿔줘야한다.<br>이를 해결하기 위해 사용된 것이 바로 Iterator 패턴이다. Iterator 패턴은 Iterator를 이용해 반복적으로 요소를 처리할 수 있게함으로써 역할을 분리했다. 현재 가르키고 있는 값을 Aggregate의 외부에 둠으로써 데이터를 제공하는 것과 그 값을 찾는 것을 분리했음을 보면 알 수 있다.</p>
-<h1 id="관련-패턴"><a href="#관련-패턴" class="headerlink" title="관련 패턴"></a>관련 패턴</h1><ul>
-<li>Visitor 패턴</li>
-<li>Composite 패턴</li>
-<li>Factory Method 패턴</li>
-</ul>
+  <div class="post-block">
+    <div class="post-content">
+      <div class="collection-title">
+        <span class="collection-header">음..! 1개의 포스트 포스트를 계속 작성하세요.</span>
+      </div>
 
       
+    <div class="collection-year">
+      <span class="collection-header">2023</span>
     </div>
 
-    
-    
-    
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <div class="post-meta-container">
+        <time itemprop="dateCreated"
+              datetime="2023-06-09T11:17:14+09:00"
+              content="2023-06-09">
+          06-09
+        </time>
+      </div>
 
-    <footer class="post-footer">
-        <div class="post-eof"></div>
+      <div class="post-title">
+          <a class="post-title-link" href="/2023/06/09/Iterator-%ED%8C%A8%ED%84%B4/" itemprop="url">
+            <span itemprop="name">Iterator 패턴: 반복문의 추상화</span>
+          </a>
+      </div>
+
       
-    </footer>
+    </header>
   </article>
-</div>
 
 
-
-
+    </div>
+  </div>
+  
+  
+  
 
 </div>
   </main>
@@ -350,7 +286,7 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
 
-<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"jicmu","repo":"jicmu.github.io","client_id":"bf129e1b97da94138a02","client_secret":"fa6d6a74c7cd70451af6f1abb173b131f68f534f","admin_user":"jicmu","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":null,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"d1546d731a9f30cc80127d57142a482b"}</script>
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"jicmu","repo":"jicmu.github.io","client_id":"bf129e1b97da94138a02","client_secret":"fa6d6a74c7cd70451af6f1abb173b131f68f534f","admin_user":"jicmu","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":null,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"79ebfe77b29b8a158cc6505636ab477f"}</script>
 <script src="/js/third-party/comments/gitalk.js"></script>
 
 </body>
