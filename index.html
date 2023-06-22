@@ -85,7 +85,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>홈</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>태그<span class="badge">1</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>카테고리<span class="badge">1</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>아카이브<span class="badge">1</span></a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>홈</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>태그<span class="badge">1</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>카테고리<span class="badge">1</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>아카이브<span class="badge">2</span></a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>검색
         </a>
@@ -148,7 +148,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">1</span>
+          <span class="site-state-item-count">2</span>
           <span class="site-state-item-name">포스트</span>
         </a>
       </div>
@@ -187,6 +187,114 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://jicmu.github.io/2023/06/22/Adapter-%ED%8C%A8%ED%84%B4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jicmu">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jicmu's blog">
+      <meta itemprop="description" content="IT 관련 정보를 기록하는 블로그입니다.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Jicmu's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/06/22/Adapter-%ED%8C%A8%ED%84%B4/" class="post-title-link" itemprop="url">Adapter 패턴: 필요한 것과 가지고 있는 것의 차이를 메우는 방법</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">작성일</span>
+      
+
+      <time title="Post created: 2023-06-22 08:15:43 / Updated at: 09:05:11" itemprop="dateCreated datePublished" datetime="2023-06-22T08:15:43+09:00">2023-06-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B4/" itemprop="url" rel="index"><span itemprop="name">디자인패턴</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="필요한-것과-가지고-있는-것"><a href="#필요한-것과-가지고-있는-것" class="headerlink" title="필요한 것과 가지고 있는 것"></a>필요한 것과 가지고 있는 것</h1><p>우리나라의 전자제품은 거의 220V의 전압을 사용한다. 하지만 다른 나라들은 110V나 240V 등의 전압을 사용할 수 있다. 우리나라의 전자제품을 가지고 해외여행을 가게 된다면 사용하기 어려울 수 있다. 이럴 때 필요한 것이 어댑터이다. 어댑터는 우리가 가지고 있는 전자제품의 전압을 필요한 것인 110V의 전압으로 바꾸어준다.<br><br><br>프로그램 개발을 할 때에도 이와 같은 상황이 있을 수 있다. 예를 들어 사용하던 라이브러리의 버전이 오르면서 API가 바뀌는 상황이 있을 수 있다. 이럴 경우에 사용하는 것이 <strong>어댑터 패턴</strong>(Wrapper 패턴이라고도 한다)이다.</p>
+<h1 id="Adapter-패턴의-용어"><a href="#Adapter-패턴의-용어" class="headerlink" title="Adapter 패턴의 용어"></a>Adapter 패턴의 용어</h1><ul>
+<li>Target<ul>
+<li>지금 필요한 메소드</li>
+<li>110V 등의 전압</li>
+</ul>
+</li>
+<li>Client<ul>
+<li>메소드를 사용하는 클래스</li>
+<li>전자제품을 사용하는 사람</li>
+</ul>
+</li>
+<li>Adaptee<ul>
+<li>현재 사용할 수 있는 메소드를 가지고 있는 클래스</li>
+<li>전자제품</li>
+</ul>
+</li>
+<li>Adater<ul>
+<li>현재 사용할 수 있는 메소드를 필요한 메소드로 바꿔주는 클래스</li>
+</ul>
+</li>
+</ul>
+<h1 id="구현-방법"><a href="#구현-방법" class="headerlink" title="구현 방법"></a>구현 방법</h1><p>어댑터 패턴을 구현하는 방법에는 상속을 이용한 방법과 위임을 이용한 방법이 있다.</p>
+<h2 id="상속-Inheritance-을-이용-클래스를-이용한-어댑터-패턴-구현"><a href="#상속-Inheritance-을-이용-클래스를-이용한-어댑터-패턴-구현" class="headerlink" title="상속(Inheritance)을 이용: 클래스를 이용한 어댑터 패턴 구현"></a>상속(Inheritance)을 이용: 클래스를 이용한 어댑터 패턴 구현</h2><p>필요한 메소드를 가지고 있는 것이 인터페이스일 때 사용할 수 있다. 현재 가지고 있는 클래스(Adaptee)를 상속받고 필요한 인터페이스(Target)를 구현해 구현된 메소드 내부에서 Adaptee의 메소드를 호출해 어댑터 패턴을 구현한다. 상속을 이용한 구현은 Adaptee의 구조를 정확히 알지 못한다면 효과적으로 사용하기 어려운 경우도 있다.</p>
+<h2 id="위임-Delegation-을-이용-인스턴스를-이용한-어댑터-패턴-구현"><a href="#위임-Delegation-을-이용-인스턴스를-이용한-어댑터-패턴-구현" class="headerlink" title="위임(Delegation)을 이용: 인스턴스를 이용한 어댑터 패턴 구현"></a>위임(Delegation)을 이용: 인스턴스를 이용한 어댑터 패턴 구현</h2><p>위임을 사용해 어댑터 패턴을 구현할 수 있다. 위임이란 클래스 내부에 다른 클래스의 인스턴스를 포함시켜 사용하는 상태이다. Target의 추상 메소드를 구현할 때 필드에 존재하는 Adaptee의 메소드를 호출해 어댑터 패턴을 구현한다.</p>
+<h1 id="사용하는-이유"><a href="#사용하는-이유" class="headerlink" title="사용하는 이유"></a>사용하는 이유</h1><p>이미 테스트된 잘 만들어진 클래스를 API의 변경 등으로 인해 사용하지 않고 새로운 클래스를 만들어야 하는 것은 불필요한 일이다. 어댑터 패턴은 어댑터를 이용해 필요한 메소드의 스펙에 맞춰 사용할 수 있도록 도와준다.</p>
+<h1 id="관련-패턴"><a href="#관련-패턴" class="headerlink" title="관련 패턴"></a>관련 패턴</h1><ul>
+<li>Bridge 패턴</li>
+<li>Decorator 패턴</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
