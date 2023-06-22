@@ -1,44 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Iterator 패턴: 반복문의 추상화</title>
-    <url>/2023/06/09/Iterator-%ED%8C%A8%ED%84%B4/</url>
-    <content><![CDATA[<h1 id="반복문-인덱스의-추상화"><a href="#반복문-인덱스의-추상화" class="headerlink" title="반복문 인덱스의 추상화"></a>반복문 인덱스의 추상화</h1><p>대부분의 프로그래밍 언어를 배울 때 여러가지 흐름제어 문법들을 배운다. 자바의 if문으로 대표되는 조건문과 while문, for문의 반복문이 그에 속한다. 이 중 for문은 대개 초기화, 조건식, 증감식을 이용해 일정횟수를 반복하거나 배열이나 Collection의 값에 일괄 처리를 하는데 사용된다.</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; collection.size(); i++) &#123;</span><br><span class="line">    <span class="comment">/* 처리문 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>위의 구분에서 변수 i는 최대 collection의 크기만큼의 값을 가지며 collection의 요소에 접근할 수 있게 해준다.<br>Iterator 패턴은 이런 i의 역할을 추상화한 것이다.</p>
-<h1 id="Iterator-패턴의-용어"><a href="#Iterator-패턴의-용어" class="headerlink" title="Iterator 패턴의 용어"></a>Iterator 패턴의 용어</h1><ul>
-<li>Iterator<ul>
-<li>자바의 java.util.Iterator<E> 인터페이스를 말한다. 이 인터페이스에는 hasNext() 메서드와 next()메서드가 있는데 hasNext()는 배열 또는 Collection의 <strong>다음 값</strong>이 존재하는지를 알려주고 next()메서드는 <strong>현재의 가르키고 있는 요소를 반환</strong>하고 다음 위치로 진행한다.</li>
-</ul>
-</li>
-<li>ConcreteIterator<ul>
-<li>Iterator<E> 인터페이스를 구현한 클래스이다.</li>
-</ul>
-</li>
-<li>Aggregate<ul>
-<li>java.lang.Iterable<T> 인터페이스를 말한다. 이 인터페이스는 Iterator를 생성하기 위한 iterator()메서드가 있다.</li>
-</ul>
-</li>
-<li>ConcreateAggregate<ul>
-<li>Iterable<T>를 구현한 클래스이다. 이 클래스의 인스턴스는 반복처리를 할 데이터를 가지고 있다.</li>
-</ul>
-</li>
-</ul>
-<h1 id="사용하는-이유"><a href="#사용하는-이유" class="headerlink" title="사용하는 이유"></a>사용하는 이유</h1><p>배열(length())과 Collection(size())의 크기를 구하기위해서 사용되는 메서드는 다르다. 만약 배열을 이용해 작동되던 for문을 ArrayList로 바꾼다고 가정해보면 for문에 직접 접근해 사용하는 메서드를 바꿔줘야한다.<br>이를 해결하기 위해 사용된 것이 바로 Iterator 패턴이다. Iterator 패턴은 Iterator를 이용해 반복적으로 요소를 처리할 수 있게함으로써 역할을 분리했다. 현재 가르키고 있는 값을 Aggregate의 외부에 둠으로써 데이터를 제공하는 것과 그 값을 찾는 것을 분리했음을 보면 알 수 있다.</p>
-<h1 id="관련-패턴"><a href="#관련-패턴" class="headerlink" title="관련 패턴"></a>관련 패턴</h1><ul>
-<li>Visitor 패턴</li>
-<li>Composite 패턴</li>
-<li>Factory Method 패턴</li>
-</ul>
-]]></content>
-      <categories>
-        <category>디자인패턴</category>
-      </categories>
-      <tags>
-        <tag>Java 언어로 배우는 디자인패턴 입문</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Adapter 패턴: 필요한 것과 가지고 있는 것의 차이를 메우는 방법</title>
     <url>/2023/06/22/Adapter-%ED%8C%A8%ED%84%B4/</url>
     <content><![CDATA[<h1 id="필요한-것과-가지고-있는-것"><a href="#필요한-것과-가지고-있는-것" class="headerlink" title="필요한 것과 가지고 있는 것"></a>필요한 것과 가지고 있는 것</h1><p>우리나라의 전자제품은 거의 220V의 전압을 사용한다. 하지만 다른 나라들은 110V나 240V 등의 전압을 사용할 수 있다. 우리나라의 전자제품을 가지고 해외여행을 가게 된다면 사용하기 어려울 수 있다. 이럴 때 필요한 것이 어댑터이다. 어댑터는 우리가 가지고 있는 전자제품의 전압을 필요한 것인 110V의 전압으로 바꾸어준다.<br>프로그램 개발을 할 때에도 이와 같은 상황이 있을 수 있다. 예를 들어 사용하던 라이브러리의 버전이 오르면서 API가 바뀌는 상황이 있을 수 있다. 이럴 경우에 사용하는 것이 <strong>어댑터 패턴</strong>(Wrapper 패턴이라고도 한다)이다.</p>
@@ -70,6 +32,44 @@
 <h1 id="관련-패턴"><a href="#관련-패턴" class="headerlink" title="관련 패턴"></a>관련 패턴</h1><ul>
 <li>Bridge 패턴</li>
 <li>Decorator 패턴</li>
+</ul>
+]]></content>
+      <categories>
+        <category>디자인패턴</category>
+      </categories>
+      <tags>
+        <tag>Java 언어로 배우는 디자인패턴 입문</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Iterator 패턴: 반복문의 추상화</title>
+    <url>/2023/06/09/Iterator-%ED%8C%A8%ED%84%B4/</url>
+    <content><![CDATA[<h1 id="반복문-인덱스의-추상화"><a href="#반복문-인덱스의-추상화" class="headerlink" title="반복문 인덱스의 추상화"></a>반복문 인덱스의 추상화</h1><p>대부분의 프로그래밍 언어를 배울 때 여러가지 흐름제어 문법들을 배운다. 자바의 if문으로 대표되는 조건문과 while문, for문의 반복문이 그에 속한다. 이 중 for문은 대개 초기화, 조건식, 증감식을 이용해 일정횟수를 반복하거나 배열이나 Collection의 값에 일괄 처리를 하는데 사용된다.</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; collection.size(); i++) &#123;</span><br><span class="line">    <span class="comment">/* 처리문 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>위의 구분에서 변수 i는 최대 collection의 크기만큼의 값을 가지며 collection의 요소에 접근할 수 있게 해준다.<br>Iterator 패턴은 이런 i의 역할을 추상화한 것이다.</p>
+<h1 id="Iterator-패턴의-용어"><a href="#Iterator-패턴의-용어" class="headerlink" title="Iterator 패턴의 용어"></a>Iterator 패턴의 용어</h1><ul>
+<li>Iterator<ul>
+<li>자바의 java.util.Iterator<E> 인터페이스를 말한다. 이 인터페이스에는 hasNext() 메서드와 next()메서드가 있는데 hasNext()는 배열 또는 Collection의 <strong>다음 값</strong>이 존재하는지를 알려주고 next()메서드는 <strong>현재의 가르키고 있는 요소를 반환</strong>하고 다음 위치로 진행한다.</li>
+</ul>
+</li>
+<li>ConcreteIterator<ul>
+<li>Iterator<E> 인터페이스를 구현한 클래스이다.</li>
+</ul>
+</li>
+<li>Aggregate<ul>
+<li>java.lang.Iterable<T> 인터페이스를 말한다. 이 인터페이스는 Iterator를 생성하기 위한 iterator()메서드가 있다.</li>
+</ul>
+</li>
+<li>ConcreateAggregate<ul>
+<li>Iterable<T>를 구현한 클래스이다. 이 클래스의 인스턴스는 반복처리를 할 데이터를 가지고 있다.</li>
+</ul>
+</li>
+</ul>
+<h1 id="사용하는-이유"><a href="#사용하는-이유" class="headerlink" title="사용하는 이유"></a>사용하는 이유</h1><p>배열(length())과 Collection(size())의 크기를 구하기위해서 사용되는 메서드는 다르다. 만약 배열을 이용해 작동되던 for문을 ArrayList로 바꾼다고 가정해보면 for문에 직접 접근해 사용하는 메서드를 바꿔줘야한다.<br>이를 해결하기 위해 사용된 것이 바로 Iterator 패턴이다. Iterator 패턴은 Iterator를 이용해 반복적으로 요소를 처리할 수 있게함으로써 역할을 분리했다. 현재 가르키고 있는 값을 Aggregate의 외부에 둠으로써 데이터를 제공하는 것과 그 값을 찾는 것을 분리했음을 보면 알 수 있다.</p>
+<h1 id="관련-패턴"><a href="#관련-패턴" class="headerlink" title="관련 패턴"></a>관련 패턴</h1><ul>
+<li>Visitor 패턴</li>
+<li>Composite 패턴</li>
+<li>Factory Method 패턴</li>
 </ul>
 ]]></content>
       <categories>
