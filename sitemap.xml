@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://jicmu.github.io/2023/06/22/Adapter-%ED%8C%A8%ED%84%B4/</loc>
+    <loc>https://jicmu.github.io/2023/06/22/%EC%9E%90%EB%B0%94%EC%9D%98%20%EC%A0%95%EC%84%9D/%EC%9E%90%EB%B0%94-Java/</loc>
     
     <lastmod>2023-06-22</lastmod>
     
@@ -11,7 +11,16 @@
   </url>
   
   <url>
-    <loc>https://jicmu.github.io/2023/06/09/Iterator-%ED%8C%A8%ED%84%B4/</loc>
+    <loc>https://jicmu.github.io/2023/06/22/Java%20%EC%96%B8%EC%96%B4%EB%A1%9C%20%EB%B0%B0%EC%9A%B0%EB%8A%94%20%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B4%20%EC%9E%85%EB%AC%B8/Adapter-%ED%8C%A8%ED%84%B4/</loc>
+    
+    <lastmod>2023-06-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://jicmu.github.io/2023/06/09/Java%20%EC%96%B8%EC%96%B4%EB%A1%9C%20%EB%B0%B0%EC%9A%B0%EB%8A%94%20%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B4%20%EC%9E%85%EB%AC%B8/Iterator-%ED%8C%A8%ED%84%B4/</loc>
     
     <lastmod>2023-06-09</lastmod>
     
@@ -62,10 +71,24 @@
     <priority>0.2</priority>
   </url>
   
+  <url>
+    <loc>https://jicmu.github.io/tags/%EC%9E%90%EB%B0%94%EC%9D%98-%EC%A0%95%EC%84%9D/</loc>
+    <lastmod>2023-06-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
 
   
   <url>
     <loc>https://jicmu.github.io/categories/%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B4/</loc>
+    <lastmod>2023-06-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jicmu.github.io/categories/%EC%9E%90%EB%B0%94/</loc>
     <lastmod>2023-06-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
