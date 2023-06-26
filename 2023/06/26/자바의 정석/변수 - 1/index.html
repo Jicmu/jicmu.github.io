@@ -19,28 +19,28 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"jicmu.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.15.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="Template Method 참여자 AbstractClass (추상 클래스) 처리 흐름 등을 형성하는 템플릿 메서드를 구현하고 추상메서드를 선언하는 클래스   ConcreteClass (구현 클래스) 추상 클래스에 선언된 추상메서드를 구현하는 클래스    Template Method 패턴Template Method 패턴은 구체적인 연산을 정의하는 것은 하위">
+    <meta name="description" content="변수변수의 선언프로그래밍에서 변수란 값을 저장하는 메모리 공간을 가르킨다. 변수에는 내부적으로 정수로 된 값 만을 저장할 수 있다. 하지만 우리 인간들은 숫자만으로 이루어진 값을 가지고 프로그램을 만들기는 어렵다. 단순히 정수를 나타내는 정보도 있겠지만 문자나 참과 거짓, 실수들도 있다. 정수만으로 이러한 정보들을 나타내기 위해선 정수 정보를 해석할 일정한">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Template Method 패턴: 추상과 구체의 분리">
-<meta property="og:url" content="https://jicmu.github.io/2023/06/23/Java%20%EC%96%B8%EC%96%B4%EB%A1%9C%20%EB%B0%B0%EC%9A%B0%EB%8A%94%20%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B4%20%EC%9E%85%EB%AC%B8/Template-Method-%ED%8C%A8%ED%84%B4/index.html">
+<meta property="og:title" content="변수 - 1">
+<meta property="og:url" content="https://jicmu.github.io/2023/06/26/%EC%9E%90%EB%B0%94%EC%9D%98%20%EC%A0%95%EC%84%9D/%EB%B3%80%EC%88%98%20-%201/index.html">
 <meta property="og:site_name" content="Jicmu&#39;s blog">
-<meta property="og:description" content="Template Method 참여자 AbstractClass (추상 클래스) 처리 흐름 등을 형성하는 템플릿 메서드를 구현하고 추상메서드를 선언하는 클래스   ConcreteClass (구현 클래스) 추상 클래스에 선언된 추상메서드를 구현하는 클래스    Template Method 패턴Template Method 패턴은 구체적인 연산을 정의하는 것은 하위">
+<meta property="og:description" content="변수변수의 선언프로그래밍에서 변수란 값을 저장하는 메모리 공간을 가르킨다. 변수에는 내부적으로 정수로 된 값 만을 저장할 수 있다. 하지만 우리 인간들은 숫자만으로 이루어진 값을 가지고 프로그램을 만들기는 어렵다. 단순히 정수를 나타내는 정보도 있겠지만 문자나 참과 거짓, 실수들도 있다. 정수만으로 이러한 정보들을 나타내기 위해선 정수 정보를 해석할 일정한">
 <meta property="og:locale" content="ko_KR">
-<meta property="article:published_time" content="2023-06-23T02:41:17.000Z">
-<meta property="article:modified_time" content="2023-06-23T04:06:35.522Z">
+<meta property="article:published_time" content="2023-06-26T05:37:51.000Z">
+<meta property="article:modified_time" content="2023-06-26T06:37:26.805Z">
 <meta property="article:author" content="Jicmu">
-<meta property="article:tag" content="Java 언어로 배우는 디자인 패턴 입문">
+<meta property="article:tag" content="자바의 정석">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://jicmu.github.io/2023/06/23/Java%20%EC%96%B8%EC%96%B4%EB%A1%9C%20%EB%B0%B0%EC%9A%B0%EB%8A%94%20%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B4%20%EC%9E%85%EB%AC%B8/Template-Method-%ED%8C%A8%ED%84%B4/">
+<link rel="canonical" href="https://jicmu.github.io/2023/06/26/%EC%9E%90%EB%B0%94%EC%9D%98%20%EC%A0%95%EC%84%9D/%EB%B3%80%EC%88%98%20-%201/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"ko","comments":true,"permalink":"https://jicmu.github.io/2023/06/23/Java%20%EC%96%B8%EC%96%B4%EB%A1%9C%20%EB%B0%B0%EC%9A%B0%EB%8A%94%20%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B4%20%EC%9E%85%EB%AC%B8/Template-Method-%ED%8C%A8%ED%84%B4/","path":"2023/06/23/Java 언어로 배우는 디자인패턴 입문/Template-Method-패턴/","title":"Template Method 패턴: 추상과 구체의 분리"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"ko","comments":true,"permalink":"https://jicmu.github.io/2023/06/26/%EC%9E%90%EB%B0%94%EC%9D%98%20%EC%A0%95%EC%84%9D/%EB%B3%80%EC%88%98%20-%201/","path":"2023/06/26/자바의 정석/변수 - 1/","title":"변수 - 1"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Template Method 패턴: 추상과 구체의 분리 | Jicmu's blog</title>
+<title>변수 - 1 | Jicmu's blog</title>
   
 
 
@@ -139,7 +139,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Template-Method-%EC%B0%B8%EC%97%AC%EC%9E%90"><span class="nav-number">1.</span> <span class="nav-text">Template Method 참여자</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Template-Method-%ED%8C%A8%ED%84%B4"><span class="nav-number">2.</span> <span class="nav-text">Template Method 패턴</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%EA%B4%80%EB%A0%A8-%ED%8C%A8%ED%84%B4"><span class="nav-number">3.</span> <span class="nav-text">관련 패턴</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">4.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%EB%B3%80%EC%88%98"><span class="nav-number">1.</span> <span class="nav-text">변수</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%EB%B3%80%EC%88%98%EC%9D%98-%EC%84%A0%EC%96%B8"><span class="nav-number">1.1.</span> <span class="nav-text">변수의 선언</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EB%B3%80%EC%88%98%EC%9D%98-%EC%B4%88%EA%B8%B0%ED%99%94"><span class="nav-number">1.2.</span> <span class="nav-text">변수의 초기화</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EB%B3%80%EC%88%98%EC%9D%98-%EB%AA%85%EB%AA%85-%EA%B7%9C%EC%B9%99"><span class="nav-number">1.3.</span> <span class="nav-text">변수의 명명 규칙</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%ED%83%80%EC%9E%85"><span class="nav-number">2.</span> <span class="nav-text">타입</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">3.</span> <span class="nav-text">Reference</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -201,7 +201,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="ko">
-    <link itemprop="mainEntityOfPage" href="https://jicmu.github.io/2023/06/23/Java%20%EC%96%B8%EC%96%B4%EB%A1%9C%20%EB%B0%B0%EC%9A%B0%EB%8A%94%20%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B4%20%EC%9E%85%EB%AC%B8/Template-Method-%ED%8C%A8%ED%84%B4/">
+    <link itemprop="mainEntityOfPage" href="https://jicmu.github.io/2023/06/26/%EC%9E%90%EB%B0%94%EC%9D%98%20%EC%A0%95%EC%84%9D/%EB%B3%80%EC%88%98%20-%201/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -214,12 +214,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="Template Method 패턴: 추상과 구체의 분리 | Jicmu's blog">
+      <meta itemprop="name" content="변수 - 1 | Jicmu's blog">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Template Method 패턴: 추상과 구체의 분리
+          변수 - 1
         </h1>
 
         <div class="post-meta-container">
@@ -231,7 +231,7 @@
       <span class="post-meta-item-text">작성일</span>
       
 
-      <time title="Post created: 2023-06-23 11:41:17 / Updated at: 13:06:35" itemprop="dateCreated datePublished" datetime="2023-06-23T11:41:17+09:00">2023-06-23</time>
+      <time title="Post created: 2023-06-26 14:37:51 / Updated at: 15:37:26" itemprop="dateCreated datePublished" datetime="2023-06-26T14:37:51+09:00">2023-06-26</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -239,7 +239,7 @@
       </span>
       <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B4/" itemprop="url" rel="index"><span itemprop="name">디자인패턴</span></a>
+          <a href="/categories/%EC%9E%90%EB%B0%94/" itemprop="url" rel="index"><span itemprop="name">자바</span></a>
         </span>
     </span>
 
@@ -253,32 +253,24 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="Template-Method-참여자"><a href="#Template-Method-참여자" class="headerlink" title="Template Method 참여자"></a>Template Method 참여자</h1><ul>
-<li>AbstractClass (추상 클래스)<ul>
-<li>처리 흐름 등을 형성하는 템플릿 메서드를 구현하고 추상메서드를 선언하는 클래스</li>
-</ul>
-</li>
-<li>ConcreteClass (구현 클래스)<ul>
-<li>추상 클래스에 선언된 추상메서드를 구현하는 클래스</li>
-</ul>
-</li>
-</ul>
-<h1 id="Template-Method-패턴"><a href="#Template-Method-패턴" class="headerlink" title="Template Method 패턴"></a>Template Method 패턴</h1><p>Template Method 패턴은 구체적인 연산을 정의하는 것은 하위 클래스에 맡기고 상위 클래스에서는 그 메서드의 뼈대만을 이용해 사용하는 패턴이다.<br>Template Method는 다음과 같은 연산 중 하나를 호출한다.</p>
-<ul>
-<li>구체 연산: ConcreteClass나 사용자 클래스에 정의된 연산</li>
-<li>AbstractClass 구체 연산: 자바 인터페이스의 default 메서드 등</li>
-<li>기본 연산: 추상화된 연산 (하위 클래스가 반드시 구현해야함)</li>
-<li>팩토리 메서드</li>
-<li>훅 연산 (hook operation): 하위 클래스가 선택적으로 구현할 수 있는 연산 - 빈 (empty) 구현 이용</li>
-</ul>
-<h1 id="관련-패턴"><a href="#관련-패턴" class="headerlink" title="관련 패턴"></a>관련 패턴</h1><ul>
-<li>Factory Method 패턴</li>
-<li>Strategy 패턴</li>
-</ul>
-<hr>
+        <h1 id="변수"><a href="#변수" class="headerlink" title="변수"></a>변수</h1><h2 id="변수의-선언"><a href="#변수의-선언" class="headerlink" title="변수의 선언"></a>변수의 선언</h2><p>프로그래밍에서 변수란 값을 저장하는 메모리 공간을 가르킨다. 변수에는 내부적으로 정수로 된 값 만을 저장할 수 있다. 하지만 우리 인간들은 숫자만으로 이루어진 값을 가지고 프로그램을 만들기는 어렵다. 단순히 정수를 나타내는 정보도 있겠지만 문자나 참과 거짓, 실수들도 있다. 정수만으로 이러한 정보들을 나타내기 위해선 정수 정보를 해석할 일정한 기준이 필요하다. 또 비슷한 이유로 메모리 주소의 위치에 이름을 붙일 수 있어야 한다.<br>그래서 자바와 같은 프로그래밍 언어에서 변수를 선언할 때는 타입 정보와 변수의 이름을 작성한다.</p>
+<h2 id="변수의-초기화"><a href="#변수의-초기화" class="headerlink" title="변수의 초기화"></a>변수의 초기화</h2><p>변수를 선언했다면 그 변수에는 쓰레기값(garbage value)이 들어있다. 이 값은 다른 프로그램 등에 의해 쓰여진 필요없는 정보들이다. 우리가 작성하는 모든 변수들은 현재 작성되고 있는 프로그램을 위해서만 쓰이기 때문에 쓰레기값을 필요한 값으로 바꿔줄 필요가 있다. 이를 초기화라고 하며 대입 연산자 ‘&#x3D;’를 이용해 작성한다.</p>
+<h2 id="변수의-명명-규칙"><a href="#변수의-명명-규칙" class="headerlink" title="변수의 명명 규칙"></a>변수의 명명 규칙</h2><p>자바에서 변수의 이름을 지을 때는 아래와 같은 규칙을 지켜야 한다.</p>
+<ol>
+<li>대소문자가 구분되며 길이에 제한이 없다.</li>
+<li>예약어를 사용하면 안 된다.</li>
+<li>숫자로 시작되면 안 된다.</li>
+<li>‘_’, ‘$’ 외의 특수문자는 허용되지 않는다.</li>
+</ol>
+<p>이 외에도 미래의 나를 포함해 코드를 읽는 사람을 위해서 명명법을 정해놓고 사용하는게 좋다. 자바에서는 다음과 같이 식별자를 작성하는 것이 좋다.</p>
+<ol>
+<li>클래스의 이름의 첫글자는 항상 대문자로 시작한다.</li>
+<li>여러 단어로 이루어진 이름은 각 단어의 첫글자를 대문자로 작성한다.</li>
+<li>상수의 이름은 항상 대문자로 작성하고 여러 단어일 경우 ‘_’로 구분한다.</li>
+</ol>
+<h1 id="타입"><a href="#타입" class="headerlink" title="타입"></a>타입</h1><p>타입은 정수로 된 정보를 인간이 이해할 수 있도록 표현하는데 사용된다. 타입에는 기본형(primitive type)과 참조형(reference type)이 있다. 둘의 차이는 기본형은 필요한 값을 저장하는데 비해 참조형은 데이터를 저장하고 있는 메모리 공간의 주소를 저장한다. jvm이 4byte의 스택을 사용하기 때문에 크기가 큰 자료형을 사용하기 위한 방법으로 주소를 가르키는 것으로 사용하는 것 같다. 자바의 기본형 타입에는 총 8가지가 있다. 이 중 4개의 자료형은 정수형이고 2개는 실수형, 나머지는 논리형과 문자형이다.</p>
 <h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
-<li><a target="_blank" rel="noopener" href="https://product.kyobobook.co.kr/detail/S000200311846">JAVA 언어로 배우는 디자인 패턴 입문: 쉽게 배우는 GoF의 23가지 디자인 패턴</a></li>
-<li><a target="_blank" rel="noopener" href="https://product.kyobobook.co.kr/detail/S000001962303">GoF의 디자인 패턴 :재사용성을 지닌 객체지향 소프트웨어의 핵심요소</a></li>
+<li><a target="_blank" rel="noopener" href="https://product.kyobobook.co.kr/detail/S000001550352">Java의 정석</a></li>
 </ul>
 
     </div>
@@ -297,7 +289,7 @@
   </li>
   <li class="post-copyright-link">
       <strong>Post link: </strong>
-      <a href="https://jicmu.github.io/2023/06/23/Java%20%EC%96%B8%EC%96%B4%EB%A1%9C%20%EB%B0%B0%EC%9A%B0%EB%8A%94%20%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B4%20%EC%9E%85%EB%AC%B8/Template-Method-%ED%8C%A8%ED%84%B4/" title="Template Method 패턴: 추상과 구체의 분리">https://jicmu.github.io/2023/06/23/Java 언어로 배우는 디자인패턴 입문/Template-Method-패턴/</a>
+      <a href="https://jicmu.github.io/2023/06/26/%EC%9E%90%EB%B0%94%EC%9D%98%20%EC%A0%95%EC%84%9D/%EB%B3%80%EC%88%98%20-%201/" title="변수 - 1">https://jicmu.github.io/2023/06/26/자바의 정석/변수 - 1/</a>
   </li>
   <li class="post-copyright-license">
       <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nd/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-ND</a> unless stating additionally.
@@ -306,21 +298,18 @@
 </div>
 
           <div class="post-tags">
-              <a href="/tags/Java-%EC%96%B8%EC%96%B4%EB%A1%9C-%EB%B0%B0%EC%9A%B0%EB%8A%94-%EB%94%94%EC%9E%90%EC%9D%B8-%ED%8C%A8%ED%84%B4-%EC%9E%85%EB%AC%B8/" rel="tag"># Java 언어로 배우는 디자인 패턴 입문</a>
+              <a href="/tags/%EC%9E%90%EB%B0%94%EC%9D%98-%EC%A0%95%EC%84%9D/" rel="tag"># 자바의 정석</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2023/06/22/%EC%9E%90%EB%B0%94%EC%9D%98%20%EC%A0%95%EC%84%9D/%EC%9E%90%EB%B0%94-Java/" rel="prev" title="자바 (Java)">
-                  <i class="fa fa-chevron-left"></i> 자바 (Java)
+                <a href="/2023/06/23/Java%20%EC%96%B8%EC%96%B4%EB%A1%9C%20%EB%B0%B0%EC%9A%B0%EB%8A%94%20%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B4%20%EC%9E%85%EB%AC%B8/Template-Method-%ED%8C%A8%ED%84%B4/" rel="prev" title="Template Method 패턴: 추상과 구체의 분리">
+                  <i class="fa fa-chevron-left"></i> Template Method 패턴: 추상과 구체의 분리
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2023/06/26/%EC%9E%90%EB%B0%94%EC%9D%98%20%EC%A0%95%EC%84%9D/%EB%B3%80%EC%88%98%20-%201/" rel="next" title="변수 - 1">
-                  변수 - 1 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
@@ -389,7 +378,7 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
 
-<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"jicmu","repo":"jicmu.github.io","client_id":"bf129e1b97da94138a02","client_secret":"fa6d6a74c7cd70451af6f1abb173b131f68f534f","admin_user":"jicmu","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":null,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"2e5f2bb53388e36d84f8120836072da6"}</script>
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"jicmu","repo":"jicmu.github.io","client_id":"bf129e1b97da94138a02","client_secret":"fa6d6a74c7cd70451af6f1abb173b131f68f534f","admin_user":"jicmu","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":null,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"88fee569e20ccdd01838b0101804ec58"}</script>
 <script src="/js/third-party/comments/gitalk.js"></script>
 
 </body>
